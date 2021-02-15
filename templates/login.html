@@ -8,12 +8,24 @@
 <body>
     <h1>FAST BANKING APP</h1>
     <p>Save with us</p>
-    <form>
+
+    <ul>
+        {%for user in users_list%}
+        <li>{{user.username}}{{user.password}}</li>
+        {%endfor%}
+    </ul>
+
+    {% if login_message %}
+        {{login_message}}
+    {%endif%}
+
+
+    <form method="POST" action="/account/login">
         <label for="username" placeholder="Username">Username:</label>
-        <input type="text" name="">
+        <input type="text" name="username">
         <label for="pswd" placeholder="password">Password:</label>
-        <input type="text" name="">
-        <input type="button" name="#" value="Login">
+        <input type="password" name="password">
+        <input type="submit" name="" value="Login">
     </form>
     
 </body>
